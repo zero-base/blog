@@ -12,7 +12,19 @@ class CreateCommentTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('comment',function($table){
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('ower')->default('匿名');
+            $table->integer('article_id')->unsigned();
+            $table->integer('parent_id')->unsigned();
+            $table->text('body');
+            $table->timestamp('create_at');
+
+            $table->foreign('article_id')->references('id')->on('article')
+                ->onDelete('cascade');
+
+        });
 	}
 
 	/**
@@ -20,9 +32,9 @@ class CreateCommentTable extends Migration {
 	 *
 	 * @return void
 	 */
-	public function down()
-	{
-		//
-	}
+    public function down()
+    {
+        Schema::drop('comment');
+    }
 
 }

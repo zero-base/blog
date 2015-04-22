@@ -12,7 +12,14 @@ class CreateCategoryTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('category',function($table){
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('name');
+            $table->string('description')->nullable();
+            $table->integer('article_count')->unsigned();
+
+        });
 	}
 
 	/**
@@ -22,7 +29,7 @@ class CreateCategoryTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('category');
 	}
 
 }
