@@ -17,7 +17,7 @@ class CreateCategoryTable extends Migration {
             $table->increments('id');
             $table->string('name');
             $table->string('description')->nullable();
-            $table->integer('article_count')->unsigned();
+            $table->integer('article_count')->unsigned()->default(0);
 
         });
 	}

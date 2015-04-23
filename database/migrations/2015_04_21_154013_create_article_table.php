@@ -18,8 +18,8 @@ class CreateArticleTable extends Migration {
             $table->integer('category_id')->unsigned();
             $table->string('title');
             $table->text('body');
-            $table->integer('view_count')->unsigned();
-            $table->integer('comment_count')->unsigned();
+            $table->integer('view_count')->unsigned()->default(0);
+            $table->integer('comment_count')->unsigned()->default(0);
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('category')
