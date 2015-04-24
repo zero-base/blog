@@ -17,7 +17,7 @@ class CreateCommentTable extends Migration {
             $table->increments('id');
             $table->string('ower')->default('匿名');
             $table->integer('article_id')->unsigned();
-            $table->integer('parent_id')->unsigned();
+            $table->integer('parent_id')->unsigned()->default(0);
             $table->text('body');
             $table->timestamp('create_at');
 
