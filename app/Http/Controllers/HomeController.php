@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use App\Repository\CategoryInterface;
+
 class HomeController extends Controller {
 
 	/*
@@ -12,15 +14,17 @@ class HomeController extends Controller {
 	| controller as you wish. It is just here to get your app started!
 	|
 	*/
+    protected $category;
 
 	/**
 	 * Create a new controller instance.
 	 *
 	 * @return void
 	 */
-	public function __construct()
+	public function __construct(CategoryInterface $category)
 	{
-		$this->middleware('auth');
+		//$this->middleware('auth');
+        $this->category=$category;
 	}
 
 	/**
@@ -30,7 +34,9 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+        $category_arr=$this->category->listAll();
+        var_dump($category_arr);
+        return view('home');
 	}
 
 }

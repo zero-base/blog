@@ -2,7 +2,7 @@
 	<head>
 		<title>Laravel</title>
 		
-		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+		<!--link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'-->
 
 		<style>
 			body {
@@ -35,13 +35,17 @@
 			.quote {
 				font-size: 24px;
 			}
+
+            .enter{
+                font-size: 36px;
+            }
 		</style>
 	</head>
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Laravel 5</div>
-				<div class="quote">{{ Inspiring::quote() }}</div>
+				<div class="title">Laravel 5 Demo</div>
+                <div class="enter"><a href="{{url('home')}}">Enter Site</a></iv>
 			</div>
 		</div>
 	</body>
