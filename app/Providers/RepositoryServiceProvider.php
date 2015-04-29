@@ -34,6 +34,7 @@ class RepositoryServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->app->bind('App\Repository\CategoryInterface','App\Repository\Eloquent\CategoryRepository');
+        $this->app->bind('App\Repository\ArticleInterface','App\Repository\Eloquent\ArticleRepository');
     }
 
 }

@@ -8,7 +8,11 @@
 				<div class="panel-heading">Home</div>
 
 				<div class="panel-body">
-					You are logged in!
+                    <ul>
+                    @foreach($articles as $article)
+                        <li>{{{$article->title}}}</li>
+                    @endforeach
+                    </ul>
 				</div>
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Repository\CategoryInterface;
+use App\Repository\ArticleInterface;
 
 class HomeController extends Controller {
 
@@ -15,16 +16,18 @@ class HomeController extends Controller {
 	|
 	*/
     protected $category;
+    protected $article;
 
 	/**
 	 * Create a new controller instance.
 	 *
 	 * @return void
 	 */
-	public function __construct(CategoryInterface $category)
+	public function __construct(CategoryInterface $category,ArticleInterface $article)
 	{
 		//$this->middleware('auth');
         $this->category=$category;
+        $this->article=$article;
 	}
 
 	/**
@@ -34,9 +37,9 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-        $category_arr=$this->category->listAll();
-        var_dump($category_arr);
-        return view('home');
+        $articles=$this->article->findAllPaginated();
+        //var_dump($articles);
+         return view('home',compact('articles'));
 	}
 
 }
