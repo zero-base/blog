@@ -18,6 +18,7 @@ class HomeController extends Controller {
     protected $category;
     protected $article;
 
+
 	/**
 	 * Create a new controller instance.
 	 *
@@ -38,7 +39,7 @@ class HomeController extends Controller {
 	public function index()
 	{
         $articles=$this->article->findAllPaginated();
-         return view('home',compact('articles'));
+        return view('home',compact('articles'));
 	}
 
     public  function show($id){
