@@ -20,23 +20,23 @@ class HomeController extends Controller {
 
 
 	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct(CategoryInterface $category,ArticleInterface $article)
-	{
-		//$this->middleware('auth');
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(CategoryInterface $category,ArticleInterface $article)
+    {
+        //$this->middleware('auth');
         $this->category=$category;
         $this->article=$article;
-	}
+    }
 
-	/**
-	 * Show the application dashboard to the user.
-	 *
-	 * @return Response
-	 */
-	public function index()
+    /**
+     * Show the application dashboard to the user.
+     *
+     * @return Response
+     */
+    public function index()
 	{
         $articles=$this->article->findAllPaginated();
         return view('home',compact('articles'));
@@ -45,7 +45,6 @@ class HomeController extends Controller {
     public  function show($id){
         $article=$this->article->showArticle($id);
         return view('article',compact('article'));
-
     }
 
 }
