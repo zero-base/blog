@@ -15,6 +15,8 @@ class HomeController extends Controller {
 	| controller as you wish. It is just here to get your app started!
 	|
 	*/
+
+
     protected $category;
     protected $article;
 
@@ -37,10 +39,10 @@ class HomeController extends Controller {
      * @return Response
      */
     public function index()
-	{
+    {
         $articles=$this->article->findAllPaginated();
         return view('home',compact('articles'));
-	}
+    }
 
     public  function show($id){
         $article=$this->article->showArticle($id);
