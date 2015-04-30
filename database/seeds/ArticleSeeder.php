@@ -17,7 +17,7 @@ class ArticleSeeder extends Seeder {
      */
     public function run()
     {
-        $repeate=30;
+        $repeate=100;
         $arry_stack=[];
 
         $titele=[

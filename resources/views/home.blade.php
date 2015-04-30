@@ -10,9 +10,10 @@
 				<div class="panel-body">
                     <ul>
                     @foreach($articles as $article)
-                        <li>{{{$article->title}}}</li>
+                        <li><a href="{{url('article',$article->id)}}">{{$article->title}}</a></li>
                     @endforeach
                     </ul>
+                    {!! $articles->render()!!}
 				</div>
 			</div>
 		</div>

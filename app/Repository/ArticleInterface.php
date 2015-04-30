@@ -9,5 +9,6 @@ namespace App\Repository;
 
 interface ArticleInterface{
      public function findAllPaginated($perpage=15);
+     public function showArticle($id);
 }
 

@@ -38,8 +38,13 @@ class HomeController extends Controller {
 	public function index()
 	{
         $articles=$this->article->findAllPaginated();
-        //var_dump($articles);
          return view('home',compact('articles'));
 	}
+
+    public  function show($id){
+        $article=$this->article->showArticle($id);
+        return view('article',compact('article'));
+
+    }
 
 }

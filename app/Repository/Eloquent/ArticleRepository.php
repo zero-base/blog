@@ -19,4 +19,10 @@ class ArticleRepository extends AbstractRepository implements ArticleInterface{
         $ret=$this->model->orderBy('created_at','DESC')->paginate($perpage);
         return $ret;
     }
+
+    public function showArticle($id){
+        $ret=$this->model->find($id);
+        return $ret;
+
+    }
 }
